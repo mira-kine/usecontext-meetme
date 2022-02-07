@@ -5,17 +5,18 @@ const UserContext = createContext()
 
 // create provider
 const UserProvider = ({ children }) => {
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState({})
   return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>
 }
 // create custom hook
 const useUser = () => {
-  const context = useUser(UserContext)
+  const context = useContext(UserContext)
 
   if (context === undefined) {
     throw new Error('useUser must be defined within the UserContext Provider')
   }
-  return useUser
+  return context
 }
+
 export { UserProvider, useUser }
 // export both
