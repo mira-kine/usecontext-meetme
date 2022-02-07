@@ -8,7 +8,6 @@ import { useUser } from './context/UserContext'
 function App() {
   // inital value should match the data type of end value
   const { user, setUser } = useUser({})
-  console.log('user', user)
 
   useEffect(() => {
     fetchUser()
